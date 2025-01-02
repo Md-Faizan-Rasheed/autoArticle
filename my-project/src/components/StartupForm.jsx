@@ -152,7 +152,7 @@ const generateWordFromJson = async (text) => {
     })
   );
     uploadData.append("image",formData.picture); // Append the image
-    uploadData.append("to", "sarfrazkhan416@gmail.com");
+    uploadData.append("to","s1391792@gmail.com");
     uploadData.append("subject", "ArticleOfFounders");
     uploadData.append(
       "htmlContent",
@@ -160,7 +160,7 @@ const generateWordFromJson = async (text) => {
     );
 
     // Send the file to the backend
-    const response = await axios.post("http://localhost:5000/send-email", uploadData, {
+    const response = await axios.post("http://localhost:5000/send-email",uploadData,{
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -232,21 +232,18 @@ const handleSubmit = async (e) => {
   return (
     <div>
       {isSubmitted ? (
-        // <div>
-        //   <h1>Your response has been recorded!</h1>
-        //   <p>Our team will contact you soon. Thank you for reaching out!</p>
-        // </div>
-        <div className="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600">
+        <div className="flex items-center justify-center h-screen bg-white">
         <div className="bg-white rounded-lg shadow-lg p-8 text-center max-w-md mx-auto">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">🎉 Your Response Has Been Recorded!</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">🎉 Your response has been Recorded!
+          </h1>
           <p className="text-lg text-gray-600">
-            Our team will contact you soon. Thank you for reaching out!
+          We will share the article once it is prepared by the Editorial team
           </p>
           <div className="mt-6">
           <button
-  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
-  onClick={() => (window.location.href = "https://startuptimes.net/")}
->
+              className="bg-[#FFA500] text-black font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
+              onClick={() => (window.location.href = "https://startuptimes.net/")}
+          >
               Go Back to Home
             </button>
           </div>
@@ -551,30 +548,272 @@ const handleSubmit = async (e) => {
     //   {/* {wordFileData && <WordFileGenerator data={wordFileData} />}  */}
 
     // </div>
-    <div className="max-w-4xl mx-auto p-8 bg-white shadow-md rounded-lg">
-  <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Startup Founder Questionnaire</h2>
+    <div className="max-w-4xl mx-auto p-8 bg-white shadow- rounded-lg">
+  <h2 className="text-2xl font-bold mb-6 text-center text-[#000000]">Startup Times Press Release Request Form</h2>
+  <p className="text-center font-medium mb-6 text-[#000000]">Thank you for your interest in sharing your entrepreneurial journey with Startup Times. Please provide detailed and thoughtful responses to the questions below. Your insights will help us craft a compelling and personalized story about you and your startup.</p>
   <form onSubmit={handleSubmit} className="space-y-6">
     <div>
-      <label className="block text-gray-700 font-medium mb-2">What is your Name?</label>
+      <label className="block text-[#333333] font-medium mb-2">What is your Name?</label>
       <input
         placeholder="Jon Doe"
         type="text"
         name="name"
         value={formData.name}
         onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg  focus:ring-[#FFA500]"
         required
       />
     </div>
+
     <div>
-      <label className="block text-gray-700 font-medium mb-2">Upload your picture (e.g., logo, project image)</label>
+      <label className="block text-[#333333] font-medium mb-2">Contact Number</label>
+      <input
+        placeholder="+1 123-456-7890"
+        type="text"
+        name="contactNumber"
+        value={formData.contactNumber}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"
+        required
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Email ID</label>
+      <input
+        placeholder="example@domain.com"
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"      />
+    </div>
+  
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What is the name of your organization?</label>
+      <input
+        placeholder="Startup Name Inc."
+        type="text"
+        name="organizationName"
+        value={formData.organizationName}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"    rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Can you tell us a bit about yourself and your professional background?</label>
+      <textarea
+        placeholder="Write about your experience and background here..."
+        name="aboutYourself"
+        value={formData.aboutYourself}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"    rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What inspired you to start this venture? Was there a specific moment or experience that sparked the idea?</label>
+      <textarea
+        placeholder="Share your inspiration for starting the venture..."
+        name="inspiration"
+        value={formData.inspiration}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"  
+              rows="4"
+      />
+    </div>
+
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What challenges or gaps in the market did you identify that led to the creation of your startup?</label>
+      <textarea
+        placeholder="Describe the market gaps or challenges you addressed..."
+        name="marketGaps"
+        value={formData.marketGaps}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Tell us about your early team—did you have a co-founder, and how did you come together?</label>
+      <textarea
+        placeholder="Share details about your co-founder or early team..."
+        name="coFounders"
+        value={formData.coFounders}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What is the vision behind your startup, and what problem are you solving for your customers?</label>
+      <textarea
+        placeholder="Explain your startup's vision and the problems it solves..."
+        name="vision"
+        value={formData.vision}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">How has your company’s mission evolved from the initial idea to where it is today?</label>
+      <textarea
+        placeholder="Describe the evolution of your company's mission..."
+        name="mission"
+        value={formData.mission}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Can you describe the products/services your startup offers? What makes them unique in the market?</label>
+      <textarea
+        placeholder="Explain your products/services and their uniqueness..."
+        name="productsServices"
+        value={formData.productsServices}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What were some of the major challenges you faced while building your startup, and how did you overcome them?</label>
+      <textarea
+        placeholder="Share the challenges you faced and how you overcame them..."
+        name="challenges"
+        value={formData.challenges}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What were some key milestones or turning points that marked breakthroughs for your company?</label>
+      <textarea
+        placeholder="Describe a turning point or milestone in your journey..."
+        name="turningPoint"
+        value={formData.turningPoint}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What has been your proudest moment as a founder so far?</label>
+      <textarea
+        placeholder="Share your proudest moment as a founder..."
+        name="proudestMoment"
+        value={formData.proudestMoment}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">How would you describe your company culture, and what makes your workplace unique?</label>
+      <textarea
+        placeholder="Describe your company culture and workplace uniqueness..."
+        name="companyCulture"
+        value={formData.companyCulture}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+        required
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What trends in your industry do you find most exciting or challenging right now?</label>
+      <textarea
+        placeholder="Discuss exciting or challenging trends in your industry..."
+        name="industryTrends"
+        value={formData.industryTrends}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What are your future plans for the startup? Where do you see the company in the next 5 years?</label>
+      <textarea
+        placeholder="Share your future plans and vision for the next 5 years..."
+        name="futurePlans"
+        value={formData.futurePlans}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+        
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">What advice would you give to aspiring entrepreneurs who are just starting out?</label>
+      <textarea
+        placeholder="Write your advice for aspiring entrepreneurs..."
+        name="advice"
+        value={formData.advice}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+        
+      />
+    </div>
+
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Looking back, is there anything you would have done differently in your entrepreneurial journey?</label>
+      <textarea
+        placeholder="Reflect on what you would have done differently..."
+        name="retrospective"
+        value={formData.retrospective}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Is there anything else you’d like to share about your journey, your company’s story, or the lessons you’ve learned?</label>
+      <textarea
+        placeholder="Add any additional information you'd like to share..."
+        name="additionalInfo"
+        value={formData.additionalInfo}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        rows="4"
+      />
+    </div>
+    
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Please share your website.</label>
+      <input
+        placeholder="https://yourwebsite.com"
+        type="url"
+        name="websiteLink"
+        value={formData.websiteLink}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"      />
+    </div>
+
+    <div>
+      <label className="block text-[#333333] font-medium mb-2">Please share your LinkedIn profile link.</label>
+      <input
+        placeholder="https://linkedin.com/in/yourprofile"
+        type="url"
+        name="linkedInLink"
+        value={formData.linkedInLink}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"        required
+      />
+    </div>
+
+<div>
+      <label className="block text-[#333333] font-medium mb-2">Please upload images for preparing the graphics.</label>
       <input
         type="file"
         name="picture"
         onChange={handleFileChange}
         accept="image/*"
-        className="block w-full text-gray-700 px-4 py-2 border border-gray-300 rounded-lg cursor-pointer focus:ring focus:ring-blue-300"
-      />
+        className="w-full px-4 py-2 border border-[#FFA500] rounded-lg focus:border-[#FFA500]"      />
       {formData.picture && (
         <div className="mt-2">
           <p>Selected File: {formData.picture.name}</p>
@@ -586,279 +825,9 @@ const handleSubmit = async (e) => {
         </div>
       )}
     </div>
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Contact Number</label>
-      <input
-        placeholder="+1 123-456-7890"
-        type="text"
-        name="contactNumber"
-        value={formData.contactNumber}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Email ID</label>
-      <input
-        placeholder="example@domain.com"
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What is your organization Name?</label>
-      <input
-        placeholder="Startup Name Inc."
-        type="text"
-        name="organizationName"
-        value={formData.organizationName}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Can you tell us a bit about yourself and your professional background?</label>
-      <textarea
-        placeholder="Write about your experience and background here..."
-        name="aboutYourself"
-        value={formData.aboutYourself}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What inspired you to start this venture?</label>
-      <textarea
-        placeholder="Share your inspiration for starting the venture..."
-        name="inspiration"
-        value={formData.inspiration}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What challenges or gaps in the market did you notice that led to the creation of your startup?</label>
-      <textarea
-        placeholder="Describe the market gaps or challenges you addressed..."
-        name="marketGaps"
-        value={formData.marketGaps}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Did you have a co-founder or early team that helped you build the foundation? How did you come together?</label>
-      <textarea
-        placeholder="Share details about your co-founder or early team..."
-        name="coFounders"
-        value={formData.coFounders}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What is the vision behind your startup, and what problem are you solving for your customers?</label>
-      <textarea
-        placeholder="Explain your startup's vision and the problems it solves..."
-        name="vision"
-        value={formData.vision}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">How has your mission evolved since the inception of the company?</label>
-      <textarea
-        placeholder="Describe the evolution of your company's mission..."
-        name="mission"
-        value={formData.mission}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Can you describe the products/services your startup offers? How do they stand out in the market?</label>
-      <textarea
-        placeholder="Explain your products/services and their uniqueness..."
-        name="productsServices"
-        value={formData.productsServices}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What were some of the major challenges you faced while building your startup, and how did you overcome them?</label>
-      <textarea
-        placeholder="Share the challenges you faced and how you overcame them..."
-        name="challenges"
-        value={formData.challenges}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What was the biggest turning point or milestone that marked a breakthrough for your company?</label>
-      <textarea
-        placeholder="Describe a turning point or milestone in your journey..."
-        name="turningPoint"
-        value={formData.turningPoint}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What has been your proudest moment as a founder so far?</label>
-      <textarea
-        placeholder="Share your proudest moment as a founder..."
-        name="proudestMoment"
-        value={formData.proudestMoment}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">How would you describe your company culture? What makes your workplace unique?</label>
-      <textarea
-        placeholder="Describe your company culture and workplace uniqueness..."
-        name="companyCulture"
-        value={formData.companyCulture}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What trends in your industry do you find most exciting or challenging right now?</label>
-      <textarea
-        placeholder="Discuss exciting or challenging trends in your industry..."
-        name="industryTrends"
-        value={formData.industryTrends}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What are your future plans for the startup? Where do you see the company in the next 5 years?</label>
-      <textarea
-        placeholder="Share your future plans and vision for the next 5 years..."
-        name="futurePlans"
-        value={formData.futurePlans}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">What advice would you give to aspiring entrepreneurs who are just starting out?</label>
-      <textarea
-        placeholder="Write your advice for aspiring entrepreneurs..."
-        name="advice"
-        value={formData.advice}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Looking back, what would you have done differently in your entrepreneurial journey?</label>
-      <textarea
-        placeholder="Reflect on what you would have done differently..."
-        name="retrospective"
-        value={formData.retrospective}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Is there anything else you’d like to share about your journey or your company’s story?</label>
-      <textarea
-        placeholder="Add any additional information you'd like to share..."
-        name="additionalInfo"
-        value={formData.additionalInfo}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        rows="4"
-      />
-    </div>
-    
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">Website Link</label>
-      <input
-        placeholder="https://yourwebsite.com"
-        type="url"
-        name="websiteLink"
-        value={formData.websiteLink}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        required
-      />
-    </div>
-
-    <div>
-      <label className="block text-gray-700 font-medium mb-2">LinkedIn Link</label>
-      <input
-        placeholder="https://linkedin.com/in/yourprofile"
-        type="url"
-        name="linkedInLink"
-        value={formData.linkedInLink}
-        onChange={handleChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-        required
-      />
-    </div>
-
     <button
       type="submit"
-      className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
+      className="w-full py-2 px-4 bg-[#FFA500] text-black font-semibold rounded-lg  focus:outline-none focus:ring focus:ring-blue-300"
     >
       Submit
     </button>
