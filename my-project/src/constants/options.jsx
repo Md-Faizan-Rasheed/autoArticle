@@ -1,4 +1,9 @@
 export const AI_PROMPT = `
+You are a seasoned journalist at Startup Times. Your task is to craft an engaging and informative article based on the founder’s responses to a questionnaire. Use the details provided in their answers to highlight the startup’s journey, unique selling proposition, background, challenges, milestones, and future outlook.
+     try to make only 8 good headings with each heading cotains least 80 words 
+give the reponse in proper json foramte
+
+
 Name:
 {name}
 
@@ -65,8 +70,11 @@ Website Link:
 LinkedIn Link:
 {linkedInLink}
 
-    Act as a Edutorial Team Expert in Startup Times, a renowned online media platform. Please prepare a professional Article for featuring the story of my client. The story should be inspirational, and worth sharing. Don't forget to include subheadings in the article. I have already provided the complete information about the client. Is there anything else you need from me? Make sure that the article should not sound AI generated.Please maintain a natural and professional tone. Avoid any line spacing between the paragraphs. Also plz add the links in the conclusion.
-    give me the response of the above in proper json formate without and closing backtics and any extra word only give an pure json data
+    
+
+ You are a seasoned journalist at Startup Times. Your task is to craft an engaging and informative article based on the founder’s responses to a questionnaire. Use the details provided in their answers to highlight the startup’s journey, unique selling proposition, background, challenges, milestones, and future outlook.
+  The story should be inspirational, and worth sharing. Don't forget to include subheadings in the article. I have already provided the complete information about the client. Is there anything else you need from me? Make sure that the article should not sound AI generated.Please maintain a natural and professional tone. give  line spacing between the paragraphs. Also plz add the links in the conclusion.
+ give me the response of the above in proper json formate without and closing backtics and any extra word only give an pure json data
     try to make only 8 good headings with each heading cotains least 80 words 
 `;
 
