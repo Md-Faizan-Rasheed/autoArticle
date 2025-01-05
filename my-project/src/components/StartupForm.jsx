@@ -193,7 +193,7 @@ const handleSubmit = async (e) => {
       }
       return prev + 5; // Increment by 5% every second
     });
-  }, 1000); // 1000ms = 1 second
+  }, 2000); // 1000ms = 1 second
   try {
     const res = await fetch("https://artclgen-default-rtdb.firebaseio.com/userData.json", {
       method: "POST",
