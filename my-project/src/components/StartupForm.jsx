@@ -39,6 +39,8 @@ const StartupForm = () => {
     picture: null, // To store the uploaded file
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
 
   const fetchData = async () => {
@@ -169,6 +171,8 @@ const generateWordFromJson = async (text) => {
     });
 
     console.log("Email Sent: ", response.data);
+    setIsSubmitted(true); // Set submission status to true
+
   } catch (error) {
     console.error("Error occurred:", error);
   }
@@ -177,7 +181,19 @@ const generateWordFromJson = async (text) => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  setIsLoading(true);
+  setProgress(0);
 
+  const interval = setInterval(() => {
+    setProgress((prev) => {
+      if (prev >= 100) {
+        clearInterval(interval);
+        setIsLoading(false);
+        return 0; // Reset progress after completion
+      }
+      return prev + 5; // Increment by 5% every second
+    });
+  }, 1000); // 1000ms = 1 second
   try {
     const res = await fetch("https://artclgen-default-rtdb.firebaseio.com/userData.json", {
       method: "POST",
@@ -190,8 +206,6 @@ const handleSubmit = async (e) => {
     if (res.ok) {
       // console.log("Data submitted successfully!");
       fetchData();
-      setIsSubmitted(true); // Set submission status to true
-
     } else {
       console.error("Failed to submit data:", await res.text());
     }
@@ -883,9 +897,14 @@ console.log(responseText);
 
   <button
     type="submit"
+    onClick={handleSubmit}
+
+    disabled={isLoading}
+   
     className="w-full py-2 px-4 bg-[#FFA500] text-black font-semibold rounded-lg  focus:outline-none focus:ring focus:ring-blue-300"
   >
-    Submit
+      {isLoading ? `Transforming Your Request...${progress}%` : "Submit"}
+
   </button>
 </form>
 </div>
