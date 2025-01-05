@@ -154,7 +154,7 @@ const generateWordFromJson = async (text) => {
     })
   );
     uploadData.append("image",formData.picture); // Append the image
-    uploadData.append("to"," sagirahmad21212@gmail.com");
+    uploadData.append("to","sagirahmad21212@gmail.com");
     uploadData.append("subject", "ArticleOfFounders");
     uploadData.append(
       "htmlContent",
@@ -162,7 +162,7 @@ const generateWordFromJson = async (text) => {
     );
 
     // Send the file to the backend
-    const response = await axios.post("http://localhost:5000/send-email",uploadData,{
+    const response = await axios.post("https://autoarticle.onrender.com/send-email",uploadData,{
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -845,6 +845,42 @@ console.log(responseText);
       </div>
     )}
   </div>
+ {/* <div className="space-y-4">
+  <label className="block text-gray-700 font-medium mb-2">
+    Please upload images for preparing the graphics.
+  </label>
+
+  <div className="flex items-center justify-center">
+    <label
+      htmlFor="fileInput"
+      className="cursor-pointer flex items-center justify-center w-28 h-28 bg-[#FFA500] hover:bg-[#FF8C00] text-white font-semibold rounded-full shadow-lg transition duration-300 ease-in-out"
+    >
+      Choose File
+    </label>
+    <input
+      id="fileInput"
+      type="file"
+      name="picture"
+      onChange={handleFileChange}
+      accept="image/*"
+      className="hidden"
+    />
+  </div>
+
+  {formData.picture && (
+    <div className="mt-4">
+      <p className="text-gray-600 text-sm">
+        Selected File: {formData.picture.name}
+      </p>
+      <img
+        src={URL.createObjectURL(formData.picture)}
+        alt="Preview"
+        className="mt-2 w-28 h-28 object-cover border border-gray-300 rounded-lg shadow-md"
+      />
+    </div>
+  )}
+</div> */}
+
   <button
     type="submit"
     className="w-full py-2 px-4 bg-[#FFA500] text-black font-semibold rounded-lg  focus:outline-none focus:ring focus:ring-blue-300"
